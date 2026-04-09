@@ -1,0 +1,188 @@
+/* --- Type Rush Styles --- */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; 
+    background: #0b0c10; 
+    color: white;
+}
+
+.game-header {
+    background: var(--dark);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 1rem;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.btn-back { color: var(--secondary); text-decoration: none; font-weight: bold; }
+.game-stats { display: flex; gap: 2rem; font-size: 1.2rem; font-weight: bold; flex-wrap: wrap; }
+
+.game-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1rem;
+    background: radial-gradient(circle at center, #1f2833 0%, #0b0c10 100%);
+    border-bottom: 2px solid #45a29e; 
+}
+
+/* Typing Area */
+.typing-container {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+}
+
+.prompt-text {
+    font-size: 2rem;
+    line-height: 1.6;
+    font-family: 'Courier New', Courier, monospace;
+    color: #636e72; /* Un-typed text is dim */
+    letter-spacing: 2px;
+}
+
+/* Letter States */
+.char.correct { color: var(--secondary); text-shadow: 0 0 8px rgba(0, 206, 201, 0.5); }
+.char.incorrect { color: #ff4757; background: rgba(255, 71, 87, 0.2); border-radius: 3px; }
+.char.active { border-bottom: 3px solid var(--secondary); animation: blink 1s infinite; color: white;}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Mobile Input Styling */
+.mobile-input-container {
+    width: 100%;
+    max-width: 800px;
+}
+
+#mobile-input {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: 2px solid var(--primary);
+    background: var(--dark);
+    color: white;
+    text-align: center;
+}
+
+/* Modal and utility classes (Match other games) */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; z-index: 1000; padding: 1rem; }
+.modal-content { background: white; padding: 2rem; border-radius: 15px; text-align: center; color: var(--dark); width: 100%; max-width: 450px; }
+.modal-content h2 { margin-bottom: 1rem; font-size: 1.8rem;}
+.modal-content div { margin-bottom: 2rem; }
+.hidden { display: none !important; }
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+    .game-stats { gap: 1rem; font-size: 1rem; width: 100%; justify-content: space-between; }
+    .prompt-text { font-size: 1.3rem; }
+    .typing-container { padding: 1rem; }
+    .modal-content .btn { width: 100%; margin-bottom: 0.5rem; }
+}
+
+/* --- Virtual Keyboard Styles --- */
+.virtual-keyboard {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.keyboard-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+}
+
+.key {
+    background: var(--dark);
+    color: #b2bec3;
+    padding: 1rem 0;
+    width: 45px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    border-bottom: 4px solid #1e272e;
+    transition: all 0.1s;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.spacebar { width: 300px; }
+
+.hand-guide {
+    color: var(--secondary);
+    font-size: 0.9rem;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* 🔥 The Glow Effect for the correct next key */
+.key.highlight-next {
+    background: var(--primary);
+    color: white;
+    border-bottom-color: #4834d4;
+    box-shadow: 0 0 15px var(--primary);
+    transform: translateY(-2px);
+}
+
+/* When the user physically presses the key */
+.key.pressed {
+    transform: translateY(4px);
+    border-bottom-width: 0px;
+    background: var(--secondary);
+    color: var(--dark);
+}
+
+/* --- Finger Zone Color Coding --- */
+.l-pinky, .r-pinky { border-bottom-color: #ff7675; }  /* Red for pinky */
+.l-ring, .r-ring { border-bottom-color: #74b9ff; }    /* Blue for ring */
+.l-mid, .r-mid { border-bottom-color: #55efc4; }      /* Green for middle */
+.l-index, .r-index { border-bottom-color: #ffeaa7; }  /* Yellow for index */
+.thumbs { border-bottom-color: #a29bfe; }             /* Purple for thumb */
+
+.hand-guide-legend {
+    margin-top: 15px;
+    text-align: center;
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.hand-guide-legend p {
+    color: var(--secondary);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.color-legend {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}

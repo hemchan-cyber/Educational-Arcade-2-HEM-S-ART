@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Meteor</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="game-header">
+        <a href="../../index.html" class="btn-back">⬅ Back to Hub</a>
+        <div class="game-stats">
+            <div>❤️ Lives: <span id="ui-lives">5</span></div>
+            <div>Level: <span id="ui-level">1</span></div>
+            <div>Score: <span id="ui-score">0</span></div>
+        </div>
+    </header>
+
+    <main class="game-area" id="game-area"></main>
+
+    <div class="control-panel">
+        <input type="number" id="answer-input" placeholder="Type answer & press Enter..." disabled>
+    </div>
+
+    <div id="game-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Title</h2>
+            <div id="modal-message">Message</div>
+            <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
+                <button id="modal-btn-primary" class="btn">Action</button>
+                <button id="modal-btn-secondary" class="btn btn-secondary">Abort to Hub</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/BaseGame.js"></script>
+    <script src="math-meteor.js"></script>
+</body>
+</html>

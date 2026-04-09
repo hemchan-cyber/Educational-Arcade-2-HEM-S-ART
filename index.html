@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Arcade Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="hub-header">
+        <h1>🎮 EdArcade</h1>
+        <div class="user-profile">
+            <span class="avatar">👤 <span id="user-display">Guest</span></span>
+            <div class="stats">
+                <p>Total Points</p>
+                <h2 id="global-score">0</h2>
+            </div>
+            <button onclick="ArcadeManager.logout()" class="btn btn-small" id="logout-btn" style="display: none;">Logout</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="login-section" class="auth-card">
+            <h2>Player Login</h2>
+            <p>Log in to save your points and level progress!</p>
+            <div class="auth-form">
+                <input type="text" id="username" placeholder="Enter Username">
+                <input type="password" id="password" placeholder="Enter Password">
+                <div class="auth-buttons">
+                    <button onclick="ArcadeManager.login(document.getElementById('username').value, document.getElementById('password').value)" class="btn">Login</button>
+                    <button onclick="ArcadeManager.register(document.getElementById('username').value, document.getElementById('password').value)" class="btn btn-secondary">Register</button>
+                </div>
+            </div>
+        </div>
+        <div class="leaderboard-card">
+            <h2>🏆 Top Players</h2>
+            <p>Compete to be the arcade champion!</p>
+            <ul id="leaderboard-list" class="leaderboard-list">
+                <li>Loading players...</li>
+            </ul>
+        </div>
+        <h2>Choose Your Game</h2>
+        <div class="game-grid">
+            
+            <div class="game-card">
+                <div class="card-icon">☄️</div>
+                <h3>Math Meteor</h3>
+                <p>Save the planet with basic arithmetic!</p>
+                <p id="pb-Math Meteor" style="color: var(--primary); font-weight: bold; font-size: 0.9rem; margin-bottom: 1rem;"></p>
+                <div class="card-footer">
+                    <span class="badge">Math</span>
+                    <a href="games/math-meteor/index.html" class="btn">Play</a>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="card-icon">🧠</div>
+                <h3>Vocab Vault</h3>
+                <p>Train your memory and vocabulary!</p>
+                
+                <p id="pb-Vocab Vault" style="color: var(--primary); font-weight: bold; font-size: 0.9rem; margin-bottom: 1rem;"></p>
+                
+                <div class="card-footer">
+                    <span class="badge">Words</span>
+                    <a href="games/vocab-vault/index.html" class="btn">Play</a>
+                </div>
+            </div>
+            <div class="game-card">
+                <div class="card-icon">⌨️</div>
+                <h3>Type Rush</h3>
+                <p>Test your typing speed from Basic to Pro!</p>
+                
+                <p id="pb-Type Rush" style="color: var(--primary); font-weight: bold; font-size: 0.9rem; margin-bottom: 1rem;"></p>
+                
+                <div class="card-footer">
+                    <span class="badge">Typing</span>
+                    <a href="games/type-rush/index.html" class="btn">Play</a>
+                </div>
+            </div>
+            <div class="game-card locked">
+                <div class="card-icon">🔒</div>
+                <h3>Grammar Guardian</h3>
+                <p>Coming Soon!</p>
+            </div>
+
+        </div>
+    </main>
+<footer class="site-footer">
+        <div class="developer-brand">
+            <img src="images/hems-art.png" alt="HEM'S ART Logo" class="dev-logo">
+            <h2>HEM'S ART</h2>
+        </div>
+        
+        <div class="footer-legal">
+            <p>&copy; 2026 HEM'S ART. All rights reserved.</p>
+            <p class="dev-credit">Developed by HEM'S ART</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
